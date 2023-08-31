@@ -17,5 +17,5 @@ workflows:
           parallelism: 4
           parallel_it_pattern: "**/*Test*.java"
           post-steps:
-            store_artifacts:
-              path: target/surefire-reports
+            - store_artifacts:
+                path: target/surefire-reports
