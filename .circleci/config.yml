@@ -16,5 +16,6 @@ workflows:
             name: maven
           parallelism: 4
           parallel_it_pattern: "**/*Test*.java"
-          # pre-steps:
-          #   - tcc/setup
+          pre-steps:
+            - setup_remote_docker:
+                version: 20.10.14
