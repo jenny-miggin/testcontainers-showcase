@@ -2,13 +2,18 @@ version: 2.1
 orbs:
   maven: circleci/maven@1.4.1
   tcc: atomicjar/testcontainers-cloud-orb@0.1.0
+
+executors:
+  maven:
+    docker:
+      - image: cimg/openjdk:17.0
+
 workflows:
   maven_test:
     jobs:
       - maven/parallel_test:
           executor:
-            name: maven/default
-            tag: "17.0"
+            name: maven
           parallelism: 4
           parallel_it_pattern: "**/*Test*.java"
           # pre-steps:
